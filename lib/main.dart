@@ -36,28 +36,21 @@ class DicePage extends StatelessWidget {
     return SafeArea(
       child: Container(
         alignment: Alignment.center,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'image 1',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 30.0,
-                fontWeight: FontWeight.w200,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Image.asset('images/d1.png'),
               ),
-            ),
-            SizedBox(width: 10.0),
-            Text(
-              'image 2',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 30.0,
-                fontWeight: FontWeight.w200,
+              SizedBox(width: 20.0),
+              Expanded(
+                child: Image.asset('images/d2.png'),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
