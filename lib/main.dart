@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +32,26 @@ class App extends StatelessWidget {
   }
 }
 
-class DicePage extends StatelessWidget {
+class DicePage extends StatefulWidget {
+  @override
+  _DicePageState createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  int leftDiceNumber = 1;
+  int rightDiceNumber = 1;
+
+  int getRandomInt() {
+    return Random().nextInt(6) + 1;
+  }
+
+  reassignDiceNumbers() {
+    setState(() {
+      leftDiceNumber = getRandomInt();
+      rightDiceNumber = getRandomInt();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -41,14 +62,27 @@ class DicePage extends StatelessWidget {
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Image.asset('images/d1.png'),
+                // FlatButton adds by default 16.0 px of horizontal padding.
+                padding: const EdgeInsets.symmetric(
+                  vertical: 16.0,
+                  horizontal: 0.0,
+                ),
+                child: FlatButton(
+                  child: Image.asset('images/d$leftDiceNumber.png'),
+                  onPressed: () => reassignDiceNumbers(),
+                ),
               ),
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Image.asset('images/d2.png'),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 16.0,
+                  horizontal: 0.0,
+                ),
+                child: FlatButton(
+                  child: Image.asset('images/d$rightDiceNumber.png'),
+                  onPressed: () => reassignDiceNumbers(),
+                ),
               ),
             ),
           ],
