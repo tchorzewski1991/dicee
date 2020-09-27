@@ -17,8 +17,8 @@ class App extends StatelessWidget {
             'Dicee',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 30.0,
-              fontWeight: FontWeight.w200,
+              fontSize: 40.0,
+              fontWeight: FontWeight.w900,
             ),
           ),
           centerTitle: true,
