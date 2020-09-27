@@ -11,7 +11,15 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Dicee'),
+          title: Text(
+            'Dicee',
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 30.0,
+                fontWeight: FontWeight.w200),
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.black,
         ),
         body: Container(),
       ),
